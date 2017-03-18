@@ -8,7 +8,7 @@ import java.awt.*;
 /**
  * Created by Jared H on 3/18/2017.
  */
-public class LoadButton extends Button {
+public class LoadButton extends main.ui.Button {
 
     public LoadButton(int x, int y, Color color){
         super(x, y, "Load", color);

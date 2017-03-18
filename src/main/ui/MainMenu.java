@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MainMenu extends UI {
     final int TITLE_SIZE = 128, TEXT_SIZE = 58;
 
-    ArrayList<main.ui.Buttons.Button> buttons;
+    ArrayList<Button> buttons;
 
     public MainMenu(Listener mL, Game game){
         super(mL, game, STATS.MENU);
@@ -40,24 +40,26 @@ public class MainMenu extends UI {
         printSimpleString("Toxicity", game.getWidth()/3, game.getHeight()/6, g);
 
         g.setFont(new Font("Times New Roman", Font.PLAIN, TEXT_SIZE));
-        for(main.ui.Buttons.Button button: buttons){
+        for(Button button: buttons){
             button.paint(g);
         }
     }
 
     public void checks(){
+        if (buttons != null){
+            for (int i = 0; i < buttons.size(); i++) {
+                Button button = buttons.get(i);
 
-        for(int i = 0; i < buttons.size(); i++){
-            main.ui.Buttons.Button button = buttons.get(i);
+                if (button.getBounds().contains(mL.getMousePos())) {
+                    button.setHover(true);
+                } else {
+                    button.setHover(false);
+                }
 
-            if(button.getBounds().contains(mL.getMousePos())){
-                button.setHover(true);
-            }
-            else{button.setHover(false);}
-
-            if (mL.isLeftClick()){
-                if (button.getBounds().contains(mL.getMousePos())){
-                    button.action();
+                if (mL.isLeftClick()) {
+                    if (button.getBounds().contains(mL.getMousePos())) {
+                        button.action();
+                    }
                 }
             }
         }

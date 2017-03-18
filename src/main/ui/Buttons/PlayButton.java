@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Created by hiltjar000 on 3/17/2017.
  */
-public class PlayButton extends Button {
+public class PlayButton extends main.ui.Button {
 
     public PlayButton(int x, int y, Color color){
         super(x,y,"Play", color);

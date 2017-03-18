@@ -34,7 +34,7 @@ public class OptionsMenu extends UI{
         for(int i = 0; i < 2; i++) {
             g.drawRoundRect(x+i, y+i, width-i*2, height-i*2, 40, 40);
         }
-        g.drawRoundRect(x,y,width/3, height/10, 40, 40);
+
 
     }
 
