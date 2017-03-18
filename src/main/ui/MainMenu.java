@@ -40,8 +40,10 @@ public class MainMenu extends UI {
         printSimpleString("Toxicity", game.getWidth()/3, game.getHeight()/6, g);
 
         g.setFont(new Font("Times New Roman", Font.PLAIN, TEXT_SIZE));
-        for(Button button: buttons){
-            button.paint(g);
+        if (buttons != null) {
+            for (Button button : buttons) {
+                button.paint(g);
+            }
         }
     }
 

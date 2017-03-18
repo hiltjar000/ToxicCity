@@ -5,12 +5,14 @@ import main.Listener;
 import main.STATS;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Jared H on 3/18/2017.
  */
 public class OptionsMenu extends UI{
     int x, y, width, height;
+    ArrayList<Button> buttons;
     private enum PAGE{
         GENERAL,
         AUDIO,
@@ -24,6 +26,8 @@ public class OptionsMenu extends UI{
         y = game.getHeight()/12;
         width = game.getWidth()*5/6;
         height = game.getHeight()*5/6;
+        buttons = new ArrayList<>();
+
 
     }
 
