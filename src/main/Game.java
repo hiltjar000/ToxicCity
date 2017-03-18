@@ -12,7 +12,7 @@ import main.ui.*;
  */
 public class Game extends JPanel implements ActionListener{
     Timer run;
-    MListener mL = new MListener(this);
+    Listener mL = new Listener(this);
     main.ui.ui ui;
 
     public static STATS state = STATS.MENU;

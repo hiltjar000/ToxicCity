@@ -3,7 +3,7 @@ package main.ui;
 
 import main.ui.Buttons.*;
 import main.Game;
-import main.MListener;
+import main.Listener;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class MainMenu implements ui{
     final int TITLE_SIZE = 128, TEXT_SIZE = 58;
-    MListener mL;
+    Listener mL;
     Game game;
     ArrayList<main.ui.Buttons.Button> buttons;
 
-    public MainMenu(MListener mL, Game game){
+    public MainMenu(Listener mL, Game game){
         this.mL = mL;
         this.game = game;
 
