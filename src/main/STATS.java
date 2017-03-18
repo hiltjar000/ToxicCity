@@ -8,4 +8,4 @@ public enum STATS {
         MENU,
         OPTIONS,
         LOAD
-};
+}

@@ -14,7 +14,7 @@ public abstract class Button {
 
 
 
-    public Button(int x, int y, String s){
+    public Button(int x, int y, String s, Color color){
         this.x = x;
         this.y = y;
         this.s = s;
@@ -26,9 +26,9 @@ public abstract class Button {
         width = stringLen+widthOff;
         height = g.getFontMetrics().getHeight()+heightOff;
         if(!hover){
-            g.setColor(Color.BLUE);
+            g.setColor(Color.BLUE.darker());
         }
-        else {g.setColor(Color.CYAN);}
+        else {g.setColor(Color.BLUE.brighter());}
         g.fillRoundRect(x-width/2,y-heightOff/2, stringLen+widthOff/2, height, 20, 20);
         g.setColor(Color.ORANGE);
         for(int i = 0; i < 2; i++){

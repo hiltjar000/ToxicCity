@@ -13,7 +13,8 @@ import main.ui.*;
 public class Game extends JPanel implements ActionListener{
     Timer run;
     Listener mL = new Listener(this);
-    main.ui.ui ui;
+
+    public UI ui;
 
     public static STATS state = STATS.MENU;
 
@@ -48,6 +49,20 @@ public class Game extends JPanel implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         ui.checks();
+        if (ui.state() != state){
+            if (state == STATS.MENU){
+                ui = new MainMenu(mL, this);
+            }
+            else if(state == STATS.LOAD){
+                ui = new LoadScreen(mL, this);
+            }
+            else if(state == STATS.OPTIONS){
+                ui = new OptionsMenu(mL, this);
+            }
+            else if(state == STATS.PLAY){
+                ui = new PlayScreen(mL, this);
+            }
+        }
         repaint();
     }
 
@@ -57,11 +72,7 @@ public class Game extends JPanel implements ActionListener{
 
     }
 
-    public void printSimpleString(String s, int XPos, int YPos, Graphics g2d){
-        int stringLen = (int)g2d.getFontMetrics().getStringBounds(s, g2d).getWidth();
-        int start = -stringLen/2;
-        g2d.drawString(s, start + XPos, YPos);
-    }
+
 
 
 

@@ -1,6 +1,7 @@
 package main.ui;
 
 
+import main.STATS;
 import main.ui.Buttons.*;
 import main.Game;
 import main.Listener;
@@ -11,15 +12,14 @@ import java.util.ArrayList;
 /**
  * Created by Jared H on 3/16/2017.
  */
-public class MainMenu implements ui{
+public class MainMenu extends UI {
     final int TITLE_SIZE = 128, TEXT_SIZE = 58;
-    Listener mL;
-    Game game;
+
     ArrayList<main.ui.Buttons.Button> buttons;
 
     public MainMenu(Listener mL, Game game){
-        this.mL = mL;
-        this.game = game;
+        super(mL, game, STATS.MENU);
+
 
         buttons = new ArrayList<>();
         String[] s = new String[4];
@@ -27,17 +27,17 @@ public class MainMenu implements ui{
         s[2] = "Options";
         s[3] = "Exit";
 
-        buttons.add(new PlayButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size()));
-        buttons.add(new LoadButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size()));
-        buttons.add(new OptionsButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size()));
-        buttons.add(new ExitButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size()));
+        buttons.add(new PlayButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size(), Color.BLUE));
+        buttons.add(new LoadButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size(), Color.BLUE));
+        buttons.add(new OptionsButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size(), Color.BLUE));
+        buttons.add(new ExitButton(game.getWidth()*3/4, (game.getHeight()/4) + game.getHeight()/10* buttons.size(), Color.BLUE));
 
     }
 
     public void paint(Graphics g){
         g.setColor(Color.YELLOW);
         g.setFont(new Font("Times New Roman", Font.BOLD, TITLE_SIZE));
-        game.printSimpleString("Toxicity", game.getWidth()/3, game.getHeight()/6, g);
+        printSimpleString("Toxicity", game.getWidth()/3, game.getHeight()/6, g);
 
         g.setFont(new Font("Times New Roman", Font.PLAIN, TEXT_SIZE));
         for(main.ui.Buttons.Button button: buttons){
